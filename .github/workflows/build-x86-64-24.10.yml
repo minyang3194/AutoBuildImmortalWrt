@@ -81,6 +81,10 @@ jobs:
           for file in *squashfs-combined-efi.img.gz; do
             sha256sum "$file" > "$file.sha256"
             sha256sum -c "$file.sha256"
+          cp ${{ github.workspace }}/bin/targets/x86/64/*squashfs-combined.img.gz ${{ github.workspace }}
+          for file in *squashfs-combined.img.gz; do
+            sha256sum "$file" > "$file.sha256"
+            sha256sum -c "$file.sha256"  
           done
 
       - name: Create info
